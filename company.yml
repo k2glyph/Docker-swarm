@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+      customer-api:
+        image: swarmgs/customer
+      balance-api:
+        image: swarmgs/balance
+        ports:
+          - 4000:3000
+        environment:
+            MYWEB_CUSTOMER_API: customer-api:3000
