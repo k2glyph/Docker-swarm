@@ -19,3 +19,16 @@ docker service create --mode=global --name=cadvisor \
 --mount type=bind,src=/sys,dst=/sys,readonly=true \
 --mount type=bind,src=/var/lib/docker/,dst=/var/lib/docker,readonly=true \
 --publish 8080:8080 google/cadvisor
+
+
+# Build new image
+docker build -t myapp .
+# Create tag for image
+docker tag 9d232b8aade5 medineshkatwal/myapp:v1
+# Login before push
+docker login
+# Push image to docker hub
+docker push medineshkatwal/myapp:v1
+
+docker run --rm bretfisher/httping -i .1 -G -s -Y http://192.168.56.2:3000
+

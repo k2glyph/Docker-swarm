@@ -5,6 +5,11 @@ services:
       image: swarmgs/calc
       ports:
          - "7000:80"
+      healthcheck:
+        test: curl -f -s -S http://localhost/calc/iseverythingok || exit 1
+        interval: 5s
+        timeout: 5s
+        retries: 2
       deploy:
         replicas: 1
         placement:
