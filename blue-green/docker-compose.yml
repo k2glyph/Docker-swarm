@@ -13,6 +13,7 @@ services:
       - "8082:3000"
    haproxy:
       image: million12/haproxy
+      container_name: loadbalancer
       cap_add:
         - NET_ADMIN
       volumes:
