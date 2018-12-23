@@ -39,3 +39,5 @@ With Docker-compose
 deploy:
    update_config:
        order: start-first | stop-first
+### Verified Zero-downtime in docker-swarm mode with httpping
+docker run --rm bretfisher/httping -i .1 -G -s -Y http://192.168.56.2:3000/health
