@@ -1,12 +1,14 @@
-version: '3.1'
+version: '3.4'
 
 services:
     myapp:
-      image: medineshkatwal/myapp:v2
+      image: medineshkatwal/myapp:v1
       ports:
         - "3000:3000"
       deploy:
-        replicas: 2
+        replicas: 1
+        update_config:
+            order: start-first
       healthcheck:
         test: curl -f -s -S localhost:3000/health
         interval: 2s

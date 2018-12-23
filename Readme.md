@@ -32,3 +32,10 @@ docker push medineshkatwal/myapp:v1
 
 docker run --rm bretfisher/httping -i .1 -G -s -Y http://192.168.56.2:3000
 
+### Update Or Rollback config for docker services
+docker service update service_name --rollback-order=(start-first| stop-first)
+ OR
+With Docker-compose
+deploy:
+   update_config:
+       order: start-first | stop-first
